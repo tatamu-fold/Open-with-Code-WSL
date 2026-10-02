@@ -12,7 +12,7 @@ Windows Registry Editor Version 5.00
 "Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
 
 [HKEY_CLASSES_ROOT\Directory\shell\VSCodeWSL\command]
-@="mshta vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run(\"\"wsl.exe code \"\"\"\"$(wslpath '%V')\"\"\"\"\"\", 0, False)(window.close)\")"
+@="conhost.exe --headless wsl.exe code \"$(wslpath '%V')\""
 
 
 ; Add the option for right-click in the background of current folder
@@ -21,7 +21,7 @@ Windows Registry Editor Version 5.00
 "Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
 
 [HKEY_CLASSES_ROOT\Directory\Background\shell\VSCodeWSL\command]
-@="mshta vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run(\"\"wsl.exe code \"\"\"\"$(wslpath '%V')\"\"\"\"\"\", 0, False)(window.close)\")"
+@="conhost.exe --headless wsl.exe code \"$(wslpath '%V')\""
 
 
 ; Add the option for right-click on a file
@@ -30,4 +30,4 @@ Windows Registry Editor Version 5.00
 "Icon"="C:\\Program Files\\Microsoft VS Code\\Code.exe"
 
 [HKEY_CLASSES_ROOT\*\shell\VSCodeWSL\command]
-@="mshta vbscript:Execute(\"CreateObject(\"\"Wscript.Shell\"\").Run(\"\"wsl.exe code \"\"\"\"$(wslpath '%1')\"\"\"\"\"\", 0, False)(window.close)\")"
+@="conhost.exe --headless wsl.exe code \"$(wslpath '%1')\""
